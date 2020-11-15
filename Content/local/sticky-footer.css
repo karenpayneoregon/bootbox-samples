@@ -1,0 +1,50 @@
+﻿strong {
+    color: rgb(255, 140, 0)
+}
+.border-danger {
+    border-color: #e8e3e3 !important;
+}
+
+.border-5 {
+    border-style: solid;
+    border-width: 5px;
+}
+
+.border-3 {
+    border-style: solid;
+    border-width: 3px;
+}
+
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    position: relative;
+    margin: 0;
+    padding-bottom: 6rem;
+    min-height: 100%;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #0F506F;
+    color: white;
+    text-align: center;
+}
+    .footer a:visited {
+        color: white;
+    }
+

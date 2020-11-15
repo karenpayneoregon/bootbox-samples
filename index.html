@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Test</title>
+
+        <script src="Scripts/jquery-3.0.0.js"></script>
+        <script src="Scripts/bootstrap.js"></script>
+        <script src="Scripts/BootBox/bootbox.js"></script>
+        <script src="Scripts/BootBox/bootbox.locales.js"></script>
+        <link href="Content/bootstrap.css" rel="stylesheet" />
+
+        <style>
+            html,
+            body {
+                height: 100%;
+            }
+
+            .ui-datepicker {
+                z-index: 9999999 !important;
+            }
+
+            .circle {
+                width: 55px;
+                height: 55px;
+                border-radius: 50%;
+                font-size: 12px;
+                color: #fff;
+                line-height: 55px;
+                text-align: center;
+                background: #28A745
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="alert alert-danger" role="alert">
+            Various BootBox examples by Karen Payne - This example requires BootBox <strong>5.4.0</strong>
+        </div>
+
+        <div class="container py-3">
+            <div class="row">
+                <div class="col-3">
+                    <div class="circle ml-4">BootBox</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <div class="card border-0 card-body"><button id="simpleBootBox"
+                            class=" btn btn-primary btn-block">Dialog
+                            with scrolling</button></div>
+                </div>
+                <div class="col-3">
+                    <div class="card border-0 card-body"><button id="simpleBootBox1"
+                            class=" btn btn-danger btn-block">Alert</button></div>
+                </div>
+                <div class="col-3">
+                    <div class="card border-0 card-body"><button id="simpleBootBox2"
+                            class=" btn btn-success btn-block">Simple
+                            confirm</button></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-3">
+                    <div class="card border-0 card-body"><button id="simpleBootBox3"
+                            class=" btn btn-primary btn-block">Simple
+                            prompt</button></div>
+                </div>
+                <div class="col-3">
+                    <div class="card border-0 card-body"><button id="simpleBootBox4"
+                            class=" btn btn-danger btn-block">Prompt
+                            for number</button></div>
+                </div>
+                <div class="col-3">
+                    <div class="card border-0 card-body"><button id="simpleBootBox5"
+                            class=" btn btn-success btn-block">Prompt
+                            for password</button></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-3">
+                    <div class="card border-0 card-body"><button id="simpleBootBox6"
+                            class=" btn btn-primary btn-block">Select
+                            prompt</button></div>
+                </div>
+                <div class="col-3">
+                    <div class="card border-0 card-body"><button id="simpleBootBox7"
+                            class=" btn btn-danger btn-block">Prompt
+                            for date</button></div>
+                </div>
+                <div class="col-3">
+                    <div class="card border-0 card-body"><button id="simpleBootBox8"
+                            class=" btn btn-success btn-block">Confirm
+                            small/large</button></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <div class="card border-0 card-body"><button id="simpleBootBox9" class=" btn btn-primary btn-block">
+                            locales</button></div>
+                </div>
+                <div class="col-3">
+                    <div class="card border-0 card-body">
+                        <select id="locales" class="custom-select" style="max-width: 200px;">
+                            <option value="ar">ar</option>
+                            <option value="bg_BG">bg_BG</option>
+                            <option value="br">br</option>
+                            <option value="cs">cs</option>
+                            <option value="da">da</option>
+                            <option value="de">de</option>
+                            <option value="el">el</option>
+                            <option value="en">en</option>
+                            <option value="es">es</option>
+                            <option value="eu">eu</option>
+                            <option value="et">et</option>
+                            <option value="fa">fa</option>
+                            <option value="fi">fi</option>
+                            <option value="fr">fr</option>
+                            <option value="he">he</option>
+                            <option value="hu">hu</option>
+                            <option value="hr">hr</option>
+                            <option value="id">id</option>
+                            <option value="it">it</option>
+                            <option value="ja">ja</option>
+                            <option value="ka">ka</option>
+                            <option value="ko">ko</option>
+                            <option value="lt">lt</option>
+                            <option value="lv">lv</option>
+                            <option value="nl">nl</option>
+                            <option value="no">no</option>
+                            <option value="pl">pl</option>
+                            <option value="pt">pt</option>
+                            <option value="ru">ru</option>
+                            <option value="sk">sk</option>
+                            <option value="sl">sl</option>
+                            <option value="sq">sq</option>
+                            <option value="sv">sv</option>
+                            <option value="sw">sw</option>
+                            <option value="ta">ta</option>
+                            <option value="th">th</option>
+                            <option value="tr">tr</option>
+                            <option value="uk">uk</option>
+                            <option value="zh_CN">zh_CN</option>
+                            <option value="zh_TW">zh_TW</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card border-0 card-body"><button id="simpleBootBox10"
+                            class="btn btn-outline-success btn-block">Center alert</button></div>
+                </div>
+            </div>
+
+        </div>
+
+    </body>
+
+</html>
+
+<!-- script below in a .js file, left here for easy access/learning -->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#simpleBootBox').click(function (event) {
+
+            var msg =
+                '<p>Your claim has a $0 balance or you have less than one week of benefits ' +
+                'remaining on your claim. You may be eligible to receive benefits under a new ' +
+                'extension program, Extended Benefits (EB).</p> <p>After submitting your weekly ' +
+                'claim, please visit the departmentâ€™s CARES Act page for more information on ' +
+                'the extension programs available, including how to apply. Please note it may ' +
+                'take several weeks to process your next extension, so continue to claim each week ' +
+                'to request these benefits</p><p><strong>Please visit our COVID-19 page for ' +
+                'more information about the Extended Benefits (EB) program.</strong></p>';
+
+
+            bootbox.dialog({
+                title: 'OED Message',
+                message: msg,
+                buttons: {
+                    ok: {
+                        label: 'Close',
+                        className: 'btn-primary',
+                    }
+                },
+                onShow: function (e) {
+                    $('.modal-body').css('scrollable', true);
+                    $('.modal-body').css('overflow-y', 'scroll');
+                    $('.modal-body').css('height', '150px');
+                },
+                onHide: function (e) {
+                    $('.modal-body').css('scrollable', false);
+                }
+            });
+        });
+
+
+        $('#simpleBootBox1').click(function (event) {
+            bootbox.alert("Hello, this is a very simple test");
+        });
+
+
+        $('#simpleBootBox2').click(function (event) {
+            bootbox.confirm(
+                {
+                    size: "small",
+                    message: "Are you sure?",
+                    callback: function (result) {
+                        if (result === true) {
+                            bootbox.alert("Proceed");
+                        } else {
+                            bootbox.alert("Cancelled operation");
+                        }
+                    }
+                });
+        })
+
+        $('#simpleBootBox3').click(function (event) {
+            bootbox.prompt("What is your name?", function (result) {
+                if (isEmptyOrSpaces(result) === true) {
+                    bootbox.alert('please try again');
+                } else {
+                    bootbox.alert('Hello "' + result + '"');
+                }
+
+            })
+        });
+
+        $('#simpleBootBox4').click(function (event) {
+            bootbox.prompt({
+                title: "This is a prompt with a number input!",
+                inputType: 'number',
+                callback: function (result) {
+                    console.log(result);
+                }
+            });
+        });
+
+        $('#simpleBootBox5').click(function (event) {
+            bootbox.prompt({
+                title: "This is a prompt with a password input!",
+                inputType: 'password',
+                callback: function (result) {
+                    console.log(result);
+                }
+            });
+        });
+
+        $('#simpleBootBox6').click(function (event) {
+            bootbox.prompt({
+                title: "This is a prompt with select!",
+                inputType: 'select',
+                inputOptions: [
+                    {
+                        text: 'Choose one...',
+                        value: '',
+                    },
+                    {
+                        text: 'Choice One',
+                        value: '1',
+                    },
+                    {
+                        text: 'Choice Two',
+                        value: '2',
+                    },
+                    {
+                        text: 'Choice Three',
+                        value: '3',
+                    }
+                ],
+                callback: function (result) {
+                    switch (Number(result)) {
+                        case 1:
+                            console.log('First');
+                            break;
+                        case 2:
+                            console.log('second');
+                            break;
+                        case 3:
+                            console.log('third');
+                            break;
+                        default:
+                            console.log(isEmptyOrSpaces(result));
+                    }
+                }
+            });
+        });
+
+        $('#simpleBootBox7').click(function (event) {
+            bootbox.prompt({
+                title: "Enter a date",
+                inputType: 'date',
+                closeButton: false,
+                callback: function (result) {
+                    console.log(result);
+                }
+            });
+        });
+
+        $('#simpleBootBox8').click(function (event) {
+            bootbox.confirm({
+                message: "<p>This is a confirm with custom button text and color!</p><p>Click Yes for large demo, no for small demo</p>",
+                buttons: {
+                    confirm: {
+                        label: 'Yes',
+                        className: 'btn-success'
+                    },
+                    cancel: {
+                        label: 'No',
+                        className: 'btn-danger'
+                    }
+                },
+                callback: function (result) {
+                    if (result === true) {
+                        bootbox.alert({ message: "Large", size: "large" });
+                    } else {
+                        bootbox.alert({ message: "Small", size: "small" });
+                    }
+                }
+            });
+        });
+
+        /*
+         * Change locale using selector, display in that language
+         * when done reset to English
+         **/
+        $('#simpleBootBox9').click(function (event) {
+            var locale = $('#locales').val();
+            bootbox.setDefaults({ 'locale': locale });
+            bootbox.confirm('Hello World!', function (result) {
+                bootbox.alert({ message: "Example for positioning", centerVertical: true });
+                bootbox.setDefaults({ 'locale': 'en' });
+            }
+            );
+
+        })
+
+        $('#simpleBootBox10').click(function (event) {
+            bootbox.alert({ message: "Example for positioning", centerVertical: true });
+        });
+
+
+        function isEmptyOrSpaces(sender) {
+            return sender === null || sender.match(/^ *$/) !== null;
+        }
+
+        function isUndefined(value) { return typeof value === 'undefined'; }
+
+
+    });
+</script>
