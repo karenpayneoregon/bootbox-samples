@@ -1,0 +1,20 @@
+html,
+body {
+    height: 100%;
+}
+
+.ui-datepicker {
+    z-index: 9999999 !important;
+}
+
+.circle {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    font-size: 12px;
+    color: #fff;
+    line-height: 55px;
+    text-align: center;
+    background: #28A745
+}
+
