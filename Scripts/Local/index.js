@@ -1,4 +1,15 @@
 $(document).ready(function () {
+
+    /*
+    * Show center dialog if ALT+C is pressed
+    */
+    window.addEventListener("keydown", e => {
+        if (e.keyCode === 67 && e.altKey)
+        {
+            bootbox.alert({ message: "<kbd>alt</kbd><strong>+</strong><kbd>c</kbd> was pressed", centerVertical: true });
+        }
+    });
+
     $('#simpleBootBox').click(function (event) {
 
         var msg =
