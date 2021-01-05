@@ -11,4 +11,7 @@
 ![screen](./asserts/B2.png)
 
 # Bootstrap Icons
+
+Get icons here <https://icons.getbootstrap.com/>
+
 ![screen](./asserts/B3.png)
