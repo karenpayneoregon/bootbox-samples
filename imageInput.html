@@ -114,7 +114,7 @@
 
             </div>
 
-   
+
         </div>
 
         <script>
@@ -130,15 +130,22 @@
 
                 /*
                 * Toggle icon
-                */                
+                */
                 $('#brightnessButton').click(function (event) {
                     $('#brightness').toggleClass('bi-brightness-high').toggleClass('bi-brightness-low')
                 });
 
+
+                /*
+                * Toggle icon
+                */
                 $('#updateButton').click(function (event) {
                     $('#updateImage').toggleClass('bi-check').toggleClass('bi-check-circle')
-                });                
+                });
 
+                /*
+                * Show what was selected
+                */
                 $('#searchRightButton').click(function (event) {
                     var value = $('#searchRight').val();
                     if (value === '') {
