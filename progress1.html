@@ -5,10 +5,13 @@
         <meta charset='utf-8' />
         <title></title>
         <script src="Scripts/jquery-3.0.0.js"></script>
+        <script src="Scripts/Local/Helpers.js"></script>
         <script src="Scripts/bootstrap.js"></script>
         <script src="Scripts/BootBox/bootbox.js"></script>
         <script src="Scripts/BootBox/bootbox.locales.js"></script>
+        <script src="Scripts/Local/OedProgressHelper.js"></script>
         <link href="Content/bootstrap.css" rel="stylesheet" />
+
         <style>
             html,
             body {
@@ -65,10 +68,10 @@
     <body>
 
 
-        <div class="container-fluid mt-n2 ml-n1 mr-n2 pr-1">
+        <div class="container-fluid mt-n1 ml-n1 mr-n2 pr-1">
             <div class="row">
                 <div class="col">
-                    <progress id="progress1" class="position-static" max="100" value="1"></progress>
+                    <progress id="progress1" class="position-static" max="100" value="0"></progress>
                 </div>
             </div>
         </div>
@@ -77,10 +80,10 @@
         <div class="container form-group mt-lg-1">
             <div class="form-row">
                 <div class="col">
-                    <button class="btn btn-primary btn-block" type="submit">A</button>
+                    <button class="btn btn-primary btn-block" id="updateButton1">Set progress value</button>
                 </div>
                 <div class="col">
-                    <input type="number" class="form-control" style="width: 50px; height: 100%;">
+                    <input type="number" class="form-control" id="progressValue1" style="width: 60px; height: 100%;">
                 </div>
                 <div class="col">
                     <!-- empty -->
@@ -88,6 +91,60 @@
             </div>
 
         </div>
+
+        <div class="container-fluid mt-5">
+            <div class="progress m-3 pl-lg-1" style="height: 16px;" id="progressStatus">
+                <div class="progress-bar bg-success" id="progress2" role="progressbar" style="width: 0%; height: 18px;background-color: #007a61; " aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+            </div>
+        </div>
+
+        <div class="container form-group mt-lg-1">
+            <div class="form-row">
+                <div class="col">
+                    <button class="btn btn-primary btn-block" id="updateButton2">Set progress value</button>
+                </div>
+                <div class="col">
+                    <input type="number" class="form-control" id="progressValue2" style="width: 60px; height: 100%;" value="0">
+                </div>
+                <div class="col">
+                    <!-- empty -->
+                </div>
+            </div>
     </body>
 
+    <script>
+
+            $(document).ready(function() {
+
+                $('#progressValue1').val("0");
+                
+                // defaults to English
+                $OedProgressHelper.init("","#progress2");
+
+                // set progress value to 0
+                $OedProgressHelper.InitializeValueToZero();
+
+                
+                $OedProgressHelper.setBackcolorDanger();
+                $OedProgressHelper.removeForeColor();
+                $OedProgressHelper.setBackcolorPrimary();
+                $OedProgressHelper.removeForeColor();
+                $OedProgressHelper.setBackcolorOedGreen(); 
+
+
+                $('#updateButton1').click(function (event) {
+                    if ($('#progressValue1').val() % 1 === 0) {
+                        $('#progress1').attr('value', $('#progressValue1').val());
+                    }                    
+                });                  
+
+                $('#updateButton2').click(function (event) {
+                    if ($('#progressValue2').val() % 1 === 0) {
+                        $OedProgressHelper.StepBy5();
+                    }
+                }); 
+
+            });
+
+    </script>
 </html>
