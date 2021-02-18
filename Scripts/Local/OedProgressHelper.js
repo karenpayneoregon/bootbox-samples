@@ -1,10 +1,14 @@
 var $OedProgressHelper = $OedProgressHelper || {};
 $OedProgressHelper = function () {
+
+    // what to display to the right of the numeric progress value
     var progressWord = "Progress";
+
+    // this is the identifier for the progress-bar
     var progressbarIdentifier = "";
 
     /*
-          language: language code e.g. E, S 
+        language: language code e.g. E, S 
         identifier: progress bar identifier with or without pound symbol
     */
     var init = function (language, identifier) {
@@ -23,9 +27,9 @@ $OedProgressHelper = function () {
         
     };
 
-    //
-    // Append # to incoming value to ensure it's an identifier
-    //
+    /*
+        Append # to incoming value to ensure it's an identifier
+     */
     var assertPoundSymbol = function () {
 
         if (progressbarIdentifier.charAt(0) !== "#") {
@@ -35,6 +39,10 @@ $OedProgressHelper = function () {
         return progressbarIdentifier;
     };
 
+    /*
+        private method to strip unwanted bar colors rather than appending.
+        There are regular expressions to deal with this but messy.
+     */
     var removeForeColor = function () {
         var colorArray = [
             'bg-primary', 
@@ -54,15 +62,19 @@ $OedProgressHelper = function () {
             
         }
     }
+    
     var setBackcolorPrimary = function () {
+        removeForeColor();
         $(assertPoundSymbol(progressbarIdentifier)).addClass("bg-primary");
     };    
 
     var setBackcolorDanger = function () {
+        removeForeColor();
         $(assertPoundSymbol(progressbarIdentifier)).addClass("bg-danger");
     };        
 
     var setBackcolorOedGreen = function () { 
+        removeForeColor();
         $(assertPoundSymbol(progressbarIdentifier)).addClass("bg-success");
     };        
 
@@ -114,9 +126,14 @@ $OedProgressHelper = function () {
                 progressValue = 100;
             }
         }
-        $(assertPoundSymbol(progressbarIdentifier)).css("width", progressValue + "%").attr("aria-valuenow", progressValue).text(progressValue + "% " + progressWord);
+
+        $(assertPoundSymbol(progressbarIdentifier))
+            .css("width", progressValue + "%")
+            .attr("aria-valuenow", progressValue)
+            .text(progressValue + "% " + progressWord);
 
         return progressValue;
+
     };
     
     /*
@@ -175,7 +192,6 @@ $OedProgressHelper = function () {
         setBackcolorPrimary: setBackcolorPrimary,
         setBackcolorOedGreen, setBackcolorOedGreen,
         setBackcolorDanger: setBackcolorDanger,
-        removeForeColor: removeForeColor,
         Show: Show,
         Hide: Hide
 
