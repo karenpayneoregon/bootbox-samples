@@ -3,6 +3,7 @@ $OedProgressHelper = function () {
 
     // what to display to the right of the numeric progress value
     var progressWord = "Progress";
+    var progressDoneWord = "done";
 
     // this is the identifier for the progress-bar
     var progressbarIdentifier = "";
@@ -17,6 +18,7 @@ $OedProgressHelper = function () {
 
             if (language === "SP" || language === "S") {
                 progressWord = "Progreso";
+                progressDoneWord = "hecho";
             };
             
         } else {
@@ -117,12 +119,13 @@ $OedProgressHelper = function () {
         var progressValue = CurrentValue(progressbarIdentifier);
 
         if (progressValue === 100) {
-            progressWord = '';
+            progressWord = progressDoneWord;
         } else {
             if (progressValue + 25 < 100) {
                 progressValue += 25;
             } else {
                 progressValue = 100;
+                progressWord = progressDoneWord;
             }
         }
 

@@ -44,7 +44,8 @@ input[type=number] {
     width: 0%;
     height: 18px;
     background-color: #007a61;
-    aria-valuenow: 0;
-    aria-valuemin: 0;
-    aria-valuemax: 100;
+    /* used to define the human readable text alternative */
+    aria-valuenow: "0";
+    aria-valuemin: "0";
+    aria-valuemax: "100";
 }

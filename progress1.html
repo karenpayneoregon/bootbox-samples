@@ -3,7 +3,7 @@
 
     <head>
         <meta charset='utf-8' />
-        <title></title>
+        <title>OED custom progress bar</title>
         <script src="Scripts/jquery-3.0.0.js"></script>
         <script src="Scripts/Local/Helpers.js"></script>
         <script src="Scripts/bootstrap.js"></script>
@@ -16,22 +16,28 @@
     <body>
 
         <!-- progress bar -->
-        <div class="container-fluid mt-n3">
+        <div class="container-fluid mt-n3 pl-0 pr-0">
             <div class="progress m-3 pl-lg-1" style="height:16px;" id="progressStatus">                
-                <div class="progress-bar bg-success" id="pageProgress" role="progressbar" >0%</div>
+                <div class="progress-bar bg-success" id="pageProgress" role="progressbar">0%</div>
             </div>
         </div>
 
         <!-- button to step progress bar value -->
         <div class="container form-group mt-lg-1 ml-2">
-            <div class="form-row">
-                <div class="col">
-                    <button class="btn btn-primary btn-lg" id="updateButton2">Step 25</button>
+            <div class="form-row mb-3">
+                <div class="col-3">
+                    <button class="btn btn-primary btn-block" id="updateButton2">Step 25</button>
                 </div>
-                <div class="col">
+                <div class="col-9">
                     <!-- <input type="number" class="form-control" id="progressValue2" style="width: 60px; height: 100%;" value="0"> -->
                 </div>
                 <div class="col"></div>
+            </div>
+            <div class="form-row mt-lg-3">
+                <div class="col-3">
+                    <button class="btn btn-primary btn-block" id="resetButton">Reset</button>
+                </div>
+
             </div>
         </div>
 
@@ -85,7 +91,7 @@
 
             $(document).ready(function() {               
 
-                $OedProgressHelper.init("","#pageProgress");
+                $OedProgressHelper.init("S","#pageProgress");
 
                 // these can be used to change the bar color              
                 //$OedProgressHelper.setBackcolorOedGreen(); 
@@ -97,6 +103,12 @@
                     $OedProgressHelper.StepByQuarters();
 
                     //if ($('#progressValue2').val() % 1 === 0) {   }
+
+                }); 
+                
+                $('#resetButton').click(function (event) {
+
+                    $OedProgressHelper.InitializeValueToZero();
 
                 }); 
 
