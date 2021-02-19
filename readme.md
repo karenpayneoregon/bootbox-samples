@@ -12,6 +12,7 @@ An easy way to setup and use a progress bar for English or Spanish, if other lan
 - Bootstrap 4
 - OedProgressHelper.js (under Scripts/local)
 - oedProgressbar.css (under Content/Local)
+- Scripts/Local/SpokenLanguage.js which is a container for language e.g. EN, E, S, SP
 
 In a .cfm or .html place the following in
 
