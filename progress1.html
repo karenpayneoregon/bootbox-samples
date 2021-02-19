@@ -8,139 +8,106 @@
         <script src="Scripts/Local/Helpers.js"></script>
         <script src="Scripts/bootstrap.js"></script>
         <script src="Scripts/BootBox/bootbox.js"></script>
-        <script src="Scripts/BootBox/bootbox.locales.js"></script>
         <script src="Scripts/Local/OedProgressHelper.js"></script>
         <link href="Content/bootstrap.css" rel="stylesheet" />
-
-        <style>
-            html,
-            body {
-                margin: 0 !important;
-                padding: 0;
-            }
-
-            progress {
-                width: 100%;
-                height: 35px;
-            }
-
-            progress[value] {
-                -webkit-appearance: none;
-                appearance: none;
-                widows: 100px;
-                height: 20px;
-            }
-
-            progress[value]::-webkit-progress-bar { 
-                background-color: #eee;
-                border-radius: 2px;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
-            }
-
-            progress[value]::-webkit-progress-value {
-                background-image:
-                    -webkit-linear-gradient(-45deg,
-                        transparent 33%, rgba(0, 0, 0, .1) 33%,
-                        rgba(0, 0, 0, .1) 66%, transparent 66%),
-                    -webkit-linear-gradient(top,
-                        rgba(255, 255, 255, .25),
-                        rgba(0, 0, 0, .25)),
-                    -webkit-linear-gradient(left, #09c, green);
-
-                border-radius: 2px;
-                background-size: 45px 20px, 100% 100%, 100% 100%;
-            }
-
-            /* Chrome, Safari, Edge, Opera */
-            input::-webkit-outer-spin-button,
-            input::-webkit-inner-spin-button {
-                -webkit-appearance: none;
-                margin: 0;
-            }
-
-            /* Firefox */
-            input[type=number] {
-                -moz-appearance: textfield;
-            }
-        </style>
+        <link href="Content/local/oedProgressbar.css" rel="stylesheet" />
     </head>
 
     <body>
 
-
-        <div class="container-fluid mt-n1 ml-n1 mr-n2 pr-1">
-            <div class="row">
-                <div class="col">
-                    <progress id="progress1" class="position-static" max="100" value="0"></progress>
-                </div>
+        <!-- progress bar -->
+        <div class="container-fluid mt-n3">
+            <div class="progress m-3 pl-lg-1" style="height:16px;" id="progressStatus">                
+                <div class="progress-bar bg-success" id="pageProgress" role="progressbar" >0%</div>
             </div>
         </div>
 
-
-        <div class="container form-group mt-lg-1">
+        <!-- button to step progress bar value -->
+        <div class="container form-group mt-lg-1 ml-2">
             <div class="form-row">
                 <div class="col">
-                    <button class="btn btn-primary btn-block" id="updateButton1">Set progress value</button>
+                    <button class="btn btn-primary btn-lg" id="updateButton2">Step 25</button>
                 </div>
                 <div class="col">
-                    <input type="number" class="form-control" id="progressValue1" style="width: 60px; height: 100%;">
+                    <!-- <input type="number" class="form-control" id="progressValue2" style="width: 60px; height: 100%;" value="0"> -->
                 </div>
+                <div class="col"></div>
+            </div>
+        </div>
+
+        <!-- radio button group -->
+        <div class="container-fluid form-group mt-lg-1 pb-2 ml-4 border border-primary" style="width: 300px;"  id="backColor-selection">
+            
+            <div class="row bg-primary mb-1">
+                <div class="col-12">
+                    <label class="text-white mt-sm-1"><strong>Bar Color</strong></label>
+                </div>
+            </div>
+            <div class="form-row" >
                 <div class="col">
-                    <!-- empty -->
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="option_backColor" id="option_backColor-primary" value="bg-primary" >
+                        <label class="form-check-label" for="option_backColor-primary">
+                            bg-primary
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="option_backColor" id="option_backColor-danger" value="bg-danger">
+                        <label class="form-check-label" for="option_backColor-danger">
+                            bg-danger
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="option_backColor" id="option_backColor-success" value="bg-success" checked>
+                        <label class="form-check-label" for="option_backColor-success">
+                            bg-success
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="option_backColor" id="option_backColor-secondary" value="bg-secondary">
+                        <label class="form-check-label" for="option_backColor-secondary">
+                            bg-secondary
+                        </label>
+                    </div>
+
                 </div>
             </div>
 
         </div>
 
-        <div class="container-fluid mt-5">
-            <div class="progress m-3 pl-lg-1" style="height: 16px;" id="progressStatus">
-                <div class="progress-bar bg-success" id="progress2" role="progressbar" style="width: 0%; height: 18px;background-color: #007a61; " aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
-            </div>
-        </div>
-
-        <div class="container form-group mt-lg-1">
-            <div class="form-row">
-                <div class="col">
-                    <button class="btn btn-primary btn-block" id="updateButton2">Set progress value</button>
-                </div>
-                <div class="col">
-                    <input type="number" class="form-control" id="progressValue2" style="width: 60px; height: 100%;" value="0">
-                </div>
-                <div class="col">
-                    <!-- empty -->
-                </div>
-            </div>
     </body>
 
     <script>
 
-            $(document).ready(function() {
+            $(document).ready(function() {               
 
-                $('#progressValue1').val("0");
-                
-                // defaults to English
-                $OedProgressHelper.init("","#progress2");
-
-                // set progress value to 0
-                $OedProgressHelper.InitializeValueToZero();
+                $OedProgressHelper.init("","#pageProgress");
 
                 // these can be used to change the bar color              
                 //$OedProgressHelper.setBackcolorOedGreen(); 
                 //$OedProgressHelper.setBackcolorDanger();
-                //$OedProgressHelper.setBackcolorPrimary();
-
-
-                $('#updateButton1').click(function (event) {
-                    if ($('#progressValue1').val() % 1 === 0) {
-                        $('#progress1').attr('value', $('#progressValue1').val());
-                    }                    
-                });                  
+                //$OedProgressHelper.setBackcolorPrimary();          
 
                 $('#updateButton2').click(function (event) {
-                    if ($('#progressValue2').val() % 1 === 0) {
-                        $OedProgressHelper.StepBy5();
-                    }
+                    
+                    $OedProgressHelper.StepByQuarters();
+
+                    //if ($('#progressValue2').val() % 1 === 0) {   }
+
                 }); 
+
+                // handle radio button group selection changed
+                const select = document.getElementById('backColor-selection');
+                select.addEventListener('click', ({ target }) => { // handler fires on root container click
+                    if (target.getAttribute('name') === 'option_backColor') { // check if user clicks right element
+                        $OedProgressHelper.setBackcolor(target.value);
+                    }
+                });
+
 
             });
 

@@ -24,6 +24,8 @@ $OedProgressHelper = function () {
         };
 
         progressbarIdentifier = identifier;
+
+        InitializeValueToZero();
         
     };
 
@@ -44,17 +46,8 @@ $OedProgressHelper = function () {
         There are regular expressions to deal with this but messy.
      */
     var removeForeColor = function () {
-        var colorArray = [
-            'bg-primary', 
-            'bg-secondary', 
-            'bg-success', 
-            'bg-danger', 
-            'bg-warning', 
-            'bg-info', 
-            'bg-light', 
-            'bg-dark',
-            'bg-white'
-        ];
+        
+        var colorArray = ['bg-primary', 'bg-secondary', 'bg-success', 'bg-danger', 'bg-warning', 'bg-info', 'bg-light', 'bg-dark', 'bg-white'];
 
         for (let index = 0; index < colorArray.length; index++) {
             const element = colorArray[index];
@@ -62,7 +55,15 @@ $OedProgressHelper = function () {
             
         }
     }
-    
+
+        /*
+            Set background color using Bootstrap 4 colors e.g. bg-success
+        */
+    var setBackcolor = function (colorSelector) {
+        removeForeColor();
+        $(assertPoundSymbol(progressbarIdentifier)).addClass(colorSelector);
+    };    
+
     var setBackcolorPrimary = function () {
         removeForeColor();
         $(assertPoundSymbol(progressbarIdentifier)).addClass("bg-primary");
@@ -109,6 +110,30 @@ $OedProgressHelper = function () {
 
     };
 
+    /*
+        Increments progress value by 10 percent
+    */
+    var StepByQuarters = function () {
+        var progressValue = CurrentValue(progressbarIdentifier);
+
+        if (progressValue === 100) {
+            progressWord = '';
+        } else {
+            if (progressValue + 25 < 100) {
+                progressValue += 25;
+            } else {
+                progressValue = 100;
+            }
+        }
+
+        $(assertPoundSymbol(progressbarIdentifier))
+            .css("width", progressValue + "%")
+            .attr("aria-valuenow", progressValue)
+            .text(progressValue + "% " + progressWord);
+
+        return progressValue;
+
+    };
 
     /*
         Increments progress value by 10 percent
@@ -185,6 +210,7 @@ $OedProgressHelper = function () {
     return {
         init: init,
         InitializeValueToZero: InitializeValueToZero,
+        StepByQuarters: StepByQuarters,
         StepBy10: StepBy10,
         StepBy5: StepBy5,
         CurrentValue: CurrentValue,
@@ -192,6 +218,7 @@ $OedProgressHelper = function () {
         setBackcolorPrimary: setBackcolorPrimary,
         setBackcolorOedGreen, setBackcolorOedGreen,
         setBackcolorDanger: setBackcolorDanger,
+        setBackcolor: setBackcolor,
         Show: Show,
         Hide: Hide
 
