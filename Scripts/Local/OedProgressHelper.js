@@ -60,11 +60,11 @@ $OedProgressHelper = function () {
 
             for (let index = 0; index < spokenLanguageArray.length; index++) {
                 
-                const element = spokenLanguageArray[index];
+                const currentElement = spokenLanguageArray[index];
 
-                if (element.keyIdentifier === language) {
-                    progressWord = element.progressWord;
-                    progressDoneWord = element.progressDoneWord;
+                if (currentElement.keyIdentifier === language) {
+                    progressWord = currentElement.progressWord;
+                    progressDoneWord = currentElement.progressDoneWord;
                 }
 
             }
