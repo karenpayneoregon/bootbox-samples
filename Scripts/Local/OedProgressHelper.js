@@ -4,6 +4,7 @@ $OedProgressHelper = function () {
     // what to display to the right of the numeric progress value
     var progressWord = "Progress";
     var progressDoneWord = "done";
+    var spokenLanguageArray;
 
     // this is the identifier for the progress-bar
     var progressbarIdentifier = "";
@@ -12,24 +13,66 @@ $OedProgressHelper = function () {
         language: language code e.g. E, S 
         identifier: progress bar identifier with or without pound symbol
     */
+
+
+
+    /**
+     * 
+     * @param {string} language - language id
+     * @param {string} identifier  - element id
+     */
     var init = function (language, identifier) {
 
-        if (typeof language !== 'undefined') {
-
-            if (language === "SP" || language === "S") {
-                progressWord = "Progreso";
-                progressDoneWord = "hecho";
-            };
-            
-        } else {
-            // progressWord is English by default
-        };
+        configLanuages();
+        setLanguage(language);
 
         progressbarIdentifier = identifier;
 
         InitializeValueToZero();
         
     };
+
+    /**
+     * Create language array of SpokenLanguage class
+     */
+    var configLanuages = function () {
+       
+
+        spokenLanguageArray = 
+        [
+            new SpokenLanguage('E', 'progress', 'done'), 
+            new SpokenLanguage('EN', 'progress', 'done'), 
+            new SpokenLanguage('S', 'Progreso', 'hecho'), 
+            new SpokenLanguage('SP', 'Progreso', 'hecho')
+        ];
+
+    }
+
+    /**
+     * 
+     * @param {string} language identifer
+     */
+    var setLanguage = function name(language) {
+
+        language = language.toUpperCase();
+
+        if (typeof language !== 'undefined') {
+
+            for (let index = 0; index < spokenLanguageArray.length; index++) {
+                
+                const element = spokenLanguageArray[index];
+
+                if (element.keyIdentifier === language) {
+                    progressWord = element.progressWord;
+                    progressDoneWord = element.progressDoneWord;
+                }
+
+            }
+
+        } else {
+            // progressWord and progressDoneWord, English by default which are set in the declaration of each property
+        };        
+    }
 
     /*
         Append # to incoming value to ensure it's an identifier
@@ -212,6 +255,7 @@ $OedProgressHelper = function () {
 
     return {
         init: init,
+        setLanguage: setLanguage,
         InitializeValueToZero: InitializeValueToZero,
         StepByQuarters: StepByQuarters,
         StepBy10: StepBy10,

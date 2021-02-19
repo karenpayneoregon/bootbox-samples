@@ -48,6 +48,7 @@ Initialize, if the first parameter is null English is used.
 - CurrentValue returns the current progress bar value
 - Show displays the progress bar
 - Hide hides the progress bar
+- setLanguage to change spoken language (_must first use **int** method_)
 
 
 
