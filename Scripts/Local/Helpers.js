@@ -1,4 +1,5 @@
 /**
+ * Get first parameter to address
  * 
  * @param {string} name first address parameter
  */

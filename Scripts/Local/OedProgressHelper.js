@@ -10,13 +10,6 @@ $OedProgressHelper = function () {
     // this is the identifier for the progress-bar
     var progressbarIdentifier = "";
 
-    /*
-        language: language code e.g. E, S 
-        identifier: progress bar identifier with or without pound symbol
-    */
-
-
-
     /**
      * 
      * @param {string} language - language id
@@ -25,6 +18,7 @@ $OedProgressHelper = function () {
     var init = function (language, identifier) {
 
         configLanuages();
+
         if (language !== null) {
             setLanguage(language);
         }
@@ -139,10 +133,10 @@ $OedProgressHelper = function () {
         return currentValue;
 
     };    
-    // Increments or deincrements the progress bar on all pages
 
-    /*
-        Increments or deincrements the progress bar on all pages
+   /**
+    * Increments or deincrements the progress bar on all pages
+    * @param {number} newValue valid int
     */
     var Increment = function (newValue) {
 
@@ -158,9 +152,9 @@ $OedProgressHelper = function () {
 
     };
 
-    /*
-        Increments progress value by 10 percent
-    */
+    /**
+     * Increments progress value by 25 percent
+     */
     var StepByQuarters = function () {
         var progressValue = CurrentValue(progressbarIdentifier);
 
@@ -184,9 +178,9 @@ $OedProgressHelper = function () {
 
     };
 
-    /*
-        Increments progress value by 10 percent
-    */
+    /**
+     * Increments progress value by 10 percent
+     */
     var StepBy10 = function () {
         var progressValue = CurrentValue(progressbarIdentifier);
 
@@ -210,9 +204,9 @@ $OedProgressHelper = function () {
 
     };
     
-    /*
-        Increments progress value by 5 percent
-    */
+    /**
+     * Increments progress value by 5 percent
+     */
     var StepBy5 = function () {
         var progressValue = CurrentValue(progressbarIdentifier);
 
@@ -235,27 +229,32 @@ $OedProgressHelper = function () {
 
     };        
 
-    /*
-        Get current progress value/percent
-    */
+
+    /**
+     * Get current progress value/percent
+     * @param {string} identifier of element
+     */
     var CurrentValue = function (identifier) {
         return parseInt($(assertPoundSymbol(identifier)).attr("aria-valuenow"));
     };
 
-    /*
-        Display the progress bar
-    */
+    /**
+     * Display the progress bar
+     */
     var Show = function () {
         $(assertPoundSymbol(progressbarIdentifier)).show();
     };
 
-    /*
-        Hide the progress bar
-    */
+    /**
+     * Hide the progress bar
+     */
     var Hide = function () {
         $(assertPoundSymbol(progressbarIdentifier)).hide();
     };
 
+    /**
+     * Declare publicly scoped methods and properties
+     */
     return {
         init: init,
         setLanguage: setLanguage,

@@ -2,8 +2,12 @@
 <html>
 
     <head>
+        
         <meta charset='utf-8' />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
         <title>OED custom progress bar</title>
+
         <script src="Scripts/jquery-3.0.0.js"></script>
         <script src="Scripts/Local/Helpers.js"></script>
         <script src="Scripts/bootstrap.js"></script>
@@ -13,18 +17,19 @@
         <link href="Content/local/oedProgressbar.css" rel="stylesheet" />
 
         <script src="Scripts/Local/SpokenLanguage.js"></script>
+        <script src="Scripts/Local/progress1.js"></script>
 
         <style>
 
-            .custom-list {
+            .feature-list {
                 list-style: none;
                 padding-left: 0;
             }
-            .custom-list li {
+            .feature-list li {
                 position: relative;
                 padding-left: 20px;
             }
-            .custom-list li:before {
+            .feature-list li:before {
                 content: '';
                 width: 11px;
                 height: 11px;
@@ -38,6 +43,7 @@
             }    
 
         </style>
+
     </head>
 
     <body>
@@ -52,9 +58,9 @@
         </div>
 
         <!-- button to step progress bar value -->
-        <div class="container form-group mt-lg-1 ml-2">
-            <div class="form-row mb-3">
-                <div class="col-3">
+        <div class="container form-group mt-lg-1 pb-2 ml-4 border border-primary w-75 mx-auto ">
+            <div class="form-row mb-3 mt-md-1 ml-1">
+                <div class="col-4">
                     <button class="btn btn-primary btn-block" id="updateButton2">Step 25</button>
                 </div>
                 <div class="col-9">
@@ -62,8 +68,8 @@
                 </div>
                 <div class="col"></div>
             </div>
-            <div class="form-row mt-lg-3">
-                <div class="col-3">
+            <div class="form-row mt-lg-3 ml-1">
+                <div class="col-4">
                     <button class="btn btn-primary btn-block" id="resetButton">Reset</button>
                 </div>
 
@@ -71,7 +77,7 @@
         </div>
 
         <!-- radio button group -->
-        <div class="container-fluid form-group mt-lg-1 pb-2 ml-4 border border-primary w-75"   id="backColor-selection">
+        <div class="container form-group mt-lg-1 pb-2 ml-4 border border-primary w-75 mx-auto " id="backColor-selection">
             
             <div class="row bg-primary mb-1">
                 <div class="col">
@@ -114,7 +120,7 @@
 
         </div>
 
-        <div class="container form-group mt-lg-1 pb-2 ml-4 border border-primary w-75"  id="backColor-selection">
+        <div class="container form-group mt-lg-1 pb-2 ml-4 border border-primary w-75 mx-auto " id="backColor-selection">
 
             <div class="row">
                 
@@ -127,12 +133,14 @@
                     <div class="card border-0 ">
                         
                         <div class="card-body">
-                            <p>
+
+                            <p class="ml-n4">
                                 The following are public scoped
                             </p>
-                            <ul id="propertiesMethods" class="custom-list ml-n4">
-                                <li>Understands E, EN, S, SP for language codes</li>
-                                <li>Language can be set dynamically</li>
+
+                            <ul id="propertiesMethods" class="feature-list ml-n4">
+                                <li>Understands E, EN, S, SP</li>
+                                <li>Language dynamically or param</li>
                                 <li>Methods</li>
                                 <li>Increment increment by whole int value</li>
                                 <li>StepByQuarters increment bar by 25%</li>
@@ -156,58 +164,4 @@
         </div>
 
     </body>
-
-    <script>
-
-            $(document).ready(function() {  
-
-                var listArray = ['Methods', 'Properties'];
-
-                $('#propertiesMethods li').each(function () {
-
-                    var listItem = $(this);
-
-                    if (jQuery.inArray(listItem.text().split(' ')[0], listArray) === -1) {
-                        // not in array
-                        listItem.html(listItem.text().replace(/(^\w+)/, '<span class = "text-success">$1</span>'));
-                    }else{
-                        // in array
-                        listItem.html(listItem.text().replace(/(^\w+)/, '<span class = "text-primary font-weight-bold">$1</span>'));
-                    }
-                    
-                });  
-
-                /*
-                    Initialize progress-bar with language if ?lang= is passed else default to English
-                */
-                $OedProgressHelper.init($.urlParam('lang'),"#pageProgress");     
-
-                $('#updateButton2').click(function (event) {
-                    
-                    $OedProgressHelper.StepByQuarters();
-
-                    //if ($('#progressValue2').val() % 1 === 0) {   }
-
-                }); 
-                
-                $('#resetButton').click(function (event) {
-
-                    $OedProgressHelper.InitializeValueToZero();
-
-                }); 
-
-                // handle radio button group selection changed
-                const select = document.getElementById('backColor-selection');
-                select.addEventListener('click', ({ target }) => { // handler fires on root container click
-                    if (target.getAttribute('name') === 'option_backColor') { // check if user clicks right element
-                        $OedProgressHelper.setBarcolor(target.value);
-                    }
-                });
-                
-                
-                console.log($.urlParam('lang'));  
-
-            });
-
-    </script>
 </html>
