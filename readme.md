@@ -37,10 +37,10 @@ Initialize, if the first parameter is null English is used.
 
 **Note** each method with **Back** will be changed to **Bar** and **color** changed to **Color**
 
-- setBackcolor sets bar color accepts a valid [Bootstrap color](https://getbootstrap.com/docs/4.0/utilities/colors/#background-color). Internally former color rule is first removed.
-- setBackcolorPrimary sets bar color to bg-primary.
-- setBackcolorDanger sets bar color to bg-danger.
-- setBackcolorOedGreen sets bar color to bg-success.
+- setBarcolor sets bar color accepts a valid [Bootstrap color](https://getbootstrap.com/docs/4.0/utilities/colors/#background-color). Internally former color rule is first removed.
+- setBarcolorPrimary sets bar color to bg-primary.
+- setBarcolorDanger sets bar color to bg-danger.
+- setBarcolorOedGreen sets bar color to bg-success.
 - InitializeValueToZero, sets progress value to 0
 - Increment sets the progress bar value to a int value
 - StepByQuarters steps value by 25% to max of 100

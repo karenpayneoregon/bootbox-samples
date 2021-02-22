@@ -13,6 +13,31 @@
         <link href="Content/local/oedProgressbar.css" rel="stylesheet" />
 
         <script src="Scripts/Local/SpokenLanguage.js"></script>
+
+        <style>
+
+            .custom-list {
+                list-style: none;
+                padding-left: 0;
+            }
+            .custom-list li {
+                position: relative;
+                padding-left: 20px;
+            }
+            .custom-list li:before {
+                content: '';
+                width: 11px;
+                height: 11px;
+                position: absolute;
+                background-image: url('asserts/bullet.png');
+                background-size: cover;
+                background-position: center;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+            }    
+
+        </style>
     </head>
 
     <body>
@@ -46,7 +71,7 @@
         </div>
 
         <!-- radio button group -->
-        <div class="container-fluid form-group mt-lg-1 pb-2 ml-4 border border-primary w-50"   id="backColor-selection">
+        <div class="container-fluid form-group mt-lg-1 pb-2 ml-4 border border-primary w-75"   id="backColor-selection">
             
             <div class="row bg-primary mb-1">
                 <div class="col">
@@ -89,14 +114,14 @@
 
         </div>
 
-        <div class="container form-group mt-lg-1 pb-2 ml-4 border border-primary w-50"  id="backColor-selection">
+        <div class="container form-group mt-lg-1 pb-2 ml-4 border border-primary w-75"  id="backColor-selection">
 
             <div class="row">
                 
                 <div class="col-12">
                     <div class="row bg-primary mb-1">
                         <div class="col-12">
-                            <label class="text-white mt-sm-1"><strong>Notes</strong></label>
+                            <label class="text-white mt-sm-1"><strong>Methods and properties</strong></label>
                         </div>
                     </div>
                     <div class="card border-0 ">
@@ -105,17 +130,23 @@
                             <p>
                                 The following are public scoped
                             </p>
-                            <ul>
-                                <li>Understands <span class="text-primary">E, EN, S, SP</span> for language codes</li>
+                            <ul id="propertiesMethods" class="custom-list ml-n4">
+                                <li>Understands E, EN, S, SP for language codes</li>
                                 <li>Language can be set dynamically</li>
-                                <li>Methods to change bar color dynamically</li>
-                                <li><span class="text-dark font-weight-bold">Increment</span>: increment by whole int value</li>
-                                <li><span class="text-dark font-weight-bold">StepByQuarters</span>: increment bar value by 25%</li>
-                                <li><span class="text-dark font-weight-bold">StepBy10</span>: increment bar value by 10%</li>
-                                <li><span class="text-dark font-weight-bold">StepBy5</span>: increment bar value by 5%</li>
-                                <li><span class="text-dark font-weight-bold">CurrentValue</span>: get current value</li>
-                                <li><span class="text-dark font-weight-bold">Show</span>: calls show()</li>
-                                <li><span class="text-dark font-weight-bold">Hide</span>: calls hide()</li>
+                                <li>Methods</li>
+                                <li>Increment increment by whole int value</li>
+                                <li>StepByQuarters increment bar by 25%</li>
+                                <li>StepBy10 increment bar by 10%</li>
+                                <li>StepBy5 increment bar by 5%</li>
+                                <li>Show calls show()</li>
+                                <li>Hide calls hide()</li>
+                                <li>setBarcolor for setting bar color</li>
+                                <li>setBarcolorOedGreen</li>
+                                <li>setBarcolorDanger</li>
+                                <li>setBarcolorPrimary</li>
+                                <li>setLanguage set spoken lanaguage</li>
+                                <li>Properties</li>
+                                <li>CurrentValue get current value</li>
                             </ul>
                         </div>
                     </div>
@@ -128,14 +159,28 @@
 
     <script>
 
-            $(document).ready(function() {               
+            $(document).ready(function() {  
 
-                $OedProgressHelper.init("s","#pageProgress");
+                var listArray = ['Methods', 'Properties'];
 
-                // these can be used to change the bar color              
-                //$OedProgressHelper.setBackcolorOedGreen(); 
-                //$OedProgressHelper.setBackcolorDanger();
-                //$OedProgressHelper.setBackcolorPrimary();          
+                $('#propertiesMethods li').each(function () {
+
+                    var listItem = $(this);
+
+                    if (jQuery.inArray(listItem.text().split(' ')[0], listArray) === -1) {
+                        // not in array
+                        listItem.html(listItem.text().replace(/(^\w+)/, '<span class = "text-success">$1</span>'));
+                    }else{
+                        // in array
+                        listItem.html(listItem.text().replace(/(^\w+)/, '<span class = "text-primary font-weight-bold">$1</span>'));
+                    }
+                    
+                });  
+
+                /*
+                    Initialize progress-bar with language if ?lang= is passed else default to English
+                */
+                $OedProgressHelper.init($.urlParam('lang'),"#pageProgress");     
 
                 $('#updateButton2').click(function (event) {
                     
@@ -155,10 +200,12 @@
                 const select = document.getElementById('backColor-selection');
                 select.addEventListener('click', ({ target }) => { // handler fires on root container click
                     if (target.getAttribute('name') === 'option_backColor') { // check if user clicks right element
-                        $OedProgressHelper.setBackcolor(target.value);
+                        $OedProgressHelper.setBarcolor(target.value);
                     }
                 });
                 
+                
+                console.log($.urlParam('lang'));  
 
             });
 

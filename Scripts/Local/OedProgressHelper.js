@@ -25,7 +25,9 @@ $OedProgressHelper = function () {
     var init = function (language, identifier) {
 
         configLanuages();
-        setLanguage(language);
+        if (language !== null) {
+            setLanguage(language);
+        }
 
         progressbarIdentifier = identifier;
 
@@ -105,22 +107,22 @@ $OedProgressHelper = function () {
         /*
             Set background color using Bootstrap 4 colors e.g. bg-success
         */
-    var setBackcolor = function (colorSelector) {
+    var setBarcolor = function (colorSelector) {
         removeForeColor();
         $(assertPoundSymbol(progressbarIdentifier)).addClass(colorSelector);
     };    
 
-    var setBackcolorPrimary = function () {
+    var setBarcolorPrimary = function () {
         removeForeColor();
         $(assertPoundSymbol(progressbarIdentifier)).addClass("bg-primary");
     };    
 
-    var setBackcolorDanger = function () {
+    var setBarcolorDanger = function () {
         removeForeColor();
         $(assertPoundSymbol(progressbarIdentifier)).addClass("bg-danger");
     };        
 
-    var setBackcolorOedGreen = function () { 
+    var setBarcolorOedGreen = function () { 
         removeForeColor();
         $(assertPoundSymbol(progressbarIdentifier)).addClass("bg-success");
     };        
@@ -263,10 +265,10 @@ $OedProgressHelper = function () {
         StepBy5: StepBy5,
         CurrentValue: CurrentValue,
         Increment: Increment,
-        setBackcolorPrimary: setBackcolorPrimary,
-        setBackcolorOedGreen, setBackcolorOedGreen,
-        setBackcolorDanger: setBackcolorDanger,
-        setBackcolor: setBackcolor,
+        setBarcolorPrimary: setBarcolorPrimary,
+        setBarcolorOedGreen, setBarcolorOedGreen,
+        setBarcolorDanger: setBarcolorDanger,
+        setBarcolor: setBarcolor,
         Show: Show,
         Hide: Hide
 
