@@ -42,6 +42,35 @@ $OedStepOperations = function () {
         });       
     }
 
+    var removeAlerts = function (params) {
+        $('#defaultAlert').remove();
+        $('#A1').remove();
+        $('#A2').remove();
+        $('#A3').remove();
+
+    }
+
+    var InitializeSteps = function () {
+        var all = $(".stepMarker").map(function () {
+            return this.id
+        }).get();
+
+        all.forEach(element => {
+            $(`#${element}`).removeClass("btn-primary")
+        });
+
+        $("#step1").addClass("btn-primary")
+        $("#option1").prop("checked", true);
+        
+    }
+
+    var Calculate = function (totalValue) {
+        
+    }
+
+    var CalcInc = function () {
+        
+    }
     /**
      * Perform work on selected radio button on selection change
      * @param {string} name name of radio button
@@ -58,8 +87,11 @@ $OedStepOperations = function () {
      */
     return {
         init: init,
+        InitializeSteps: InitializeSteps,
         unCheckRadioButtons: unCheckRadioButtons,
         radioGroupName: radioGroupName,
-        changeSelection: changeSelection
+        changeSelection: changeSelection,
+        removeAlerts: removeAlerts
+
     };   
 }();
