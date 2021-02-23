@@ -14,6 +14,17 @@ $(document).ready(function () {
  
     $OedStepOperations.unCheckRadioButtons();
 
-    //$("#option1").prop("checked", true);
+    var all = $(".stepMarker").map(function () {
+        return this.id
+    }).get();
+    
+    all.forEach(element => {
+        $(`#${element}`).removeClass("btn-primary")
+    });
+
+    $("#step1").addClass("btn-primary")
+    $("#option1").prop("checked", true);
+
+
 
 });

@@ -32,13 +32,25 @@ $OedStepOperations = function () {
         return radioGroupName;
     }
 
+    var removeSteps = function () {
+        var all = $(".stepMarker").map(function () {
+            return this.id
+        }).get();
+
+        all.forEach(element => {
+            $("#" + element).removeClass("btn-primary")
+        });       
+    }
+
     /**
      * Perform work on selected radio button on selection change
      * @param {string} name name of radio button
      * @param {string} identifier identifier of radio button
      */
     var changeSelection = function (name, identifier) {
-        console.log(`${identifier} ${name}`);
+        console.log(`${name}`);
+        removeSteps();
+        $("#" + name).addClass("btn-primary")        
     }
 
     /**
