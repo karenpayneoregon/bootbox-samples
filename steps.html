@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+https://bootsnipp.com/snippets/8ONK
+https://bbbootstrap.com/snippets/order-tracking-progressbar-icons-22484204
+-->
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <script src="Scripts/jquery-3.0.0.js"></script>
+        <link href="Content/bootstrap.css" rel="stylesheet" />
+        <link href="Content/local/steps.css" rel="stylesheet" />
+    </head>
+
+    <body>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Weeks left on your claim</strong> 1
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="stepwizard">
+
+            <div class="stepwizard-row">
+                <div class="stepwizard-step">
+                    <button type="button" class="btn btn-default btn-circle">1</button>
+                    <p>Claim application</p>
+                </div>
+                <div class="stepwizard-step">
+                    <button type="button" class="btn btn-default btn-circle" disabled="disabled">2</button>
+                    <p>Claim in review</p>
+                </div>
+                <div class="stepwizard-step">
+                    <button type="button" class="btn btn-primary btn-circle" disabled="disabled">3</button>
+                    <p>Claim in progress</p>
+                </div>
+                <div class="stepwizard-step">
+                    <button type="button" class="btn btn-default btn-circle" disabled="disabled">4</button>
+                    <p>Decision made</p>
+                </div>
+                <div class="stepwizard-step">
+                    <button type="button" class="btn btn-default btn-circle" disabled="disabled">5</button>
+                    <p>Benefits exhausted</p>
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+</html>
