@@ -2,6 +2,10 @@
 
 Various code sample
 
+# OED Steps
+
+![screenshot](asserts/steps.png)
+
 # OED Progress bar
 A flexible way to display a progress bar
 
