@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<!--
-https://bootsnipp.com/snippets/8ONK
-https://bbbootstrap.com/snippets/order-tracking-progressbar-icons-22484204
--->
 <html>
 
     <head>
         <meta charset="utf-8" />
         <title></title>
         <script src="Scripts/jquery-3.0.0.js"></script>
+        <script src="Scripts/Local/steps.js"></script>
+        <script src="Scripts/Local/OedStepOperations.js"></script>
         <link href="Content/bootstrap.css" rel="stylesheet" />
         <link href="Content/local/steps.css" rel="stylesheet" />
+        <script src="Scripts/Local/OedStepOperations.js"></script>
     </head>
 
     <body>
@@ -46,6 +45,54 @@ https://bbbootstrap.com/snippets/order-tracking-progressbar-icons-22484204
             </div>
         </div>
 
+        <div class="container form-group mt-lg-1 pb-2 ml-4 border border-primary w-75 mx-auto " id="stepsContainer">
+        
+            <div class="row bg-primary mb-1">
+                <div class="col">
+                    <label class="text-white mt-sm-1"><strong>Status</strong></label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+        
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="groupSteps" id="option1" value="step1">
+                        <label class="form-check-label" for="option1">
+                            Claim application
+                        </label>
+                    </div>
+        
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="groupSteps" id="option2" value="step2">
+                        <label class="form-check-label" for="option2">
+                            Claim in review
+                        </label>
+                    </div>
+        
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="groupSteps" id="option3" value="step3" checked>
+                        <label class="form-check-label" for="option3">
+                            Claim in progress
+                        </label>
+                    </div>
+        
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="groupSteps" id="option4" value="step4">
+                        <label class="form-check-label" for="option4">
+                            Decision made
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="groupSteps" id="option5" value="step5">
+                        <label class="form-check-label" for="option5">
+                            Benefits exhausted
+                        </label>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
     </body>
 
 </html>
