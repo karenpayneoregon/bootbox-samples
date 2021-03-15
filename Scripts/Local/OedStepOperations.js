@@ -4,6 +4,7 @@ var $OedStepOperations = $OedStepOperations || {};
 $OedStepOperations = function () {
 
     var radioGroupName = "";
+    
 
     /**
      * Constructor
@@ -64,20 +65,29 @@ $OedStepOperations = function () {
         
     }
 
-    var Calculate = function (totalValue) {
-        
+    var maximumSteps = 7;
+    var Calculate = function () {
+
+        var iterations = 100;
+        for (var i = 1; i <= iterations; i++) {
+
+            if (iterations % i === 10) {
+                console.log(i);
+            }
+        }
+        var outOff = 100;
+        var value = 10;
+        var result = (value * 100) / outOff;       
+        return result;
     }
 
-    var CalcInc = function () {
-        
-    }
+
     /**
      * Perform work on selected radio button on selection change
      * @param {string} name name of radio button
      * @param {string} identifier identifier of radio button
      */
     var changeSelection = function (name, identifier) {
-        console.log(`${name}`);
         removeSteps();
         $("#" + name).addClass("btn-primary")        
     }
@@ -91,7 +101,8 @@ $OedStepOperations = function () {
         unCheckRadioButtons: unCheckRadioButtons,
         radioGroupName: radioGroupName,
         changeSelection: changeSelection,
-        removeAlerts: removeAlerts
+        removeAlerts: removeAlerts,
+        Calculate: Calculate
 
     };   
 }();
