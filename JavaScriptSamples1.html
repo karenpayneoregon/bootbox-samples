@@ -16,7 +16,7 @@
         <div class="container">
             <div class="form-row">
                 <div class="col">
-                    <button id="button1" class="btn btn-primary btn-block" type="submit">1</button>
+                    <button id="iterateMonthsButton" class="btn btn-primary btn-block" type="submit">1</button>
                 </div>
                 <div class="col">
                     <button class="btn btn-primary btn-block" type="submit">Filtri</button>
@@ -41,7 +41,7 @@
         <script>
 
             $(document).ready(function () {
-                $('#button1').click(function (event) {
+                $('#iterateMonthsButton').click(function (event) {
                     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
                     const year = new Date().getFullYear();
                     const getDaysInMonth = month => new Date(year, new Date(`1-${month}-${year}`).getMonth() + 1, 0).getDate();
