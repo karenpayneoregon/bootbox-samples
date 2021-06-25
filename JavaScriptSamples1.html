@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset='utf-8' />
+        <title></title>
+        <script src="Scripts/jquery-3.0.0.js"></script>
+        <script src="Scripts/bootstrap.js"></script>
+        <script src="Scripts/BootBox/bootbox.js"></script>
+        <script src="Scripts/BootBox/bootbox.locales.js"></script>
+        <link href="Content/bootstrap.css" rel="stylesheet" />
+    </head>
+
+    <body>
+
+        <div class="container">
+            <div class="form-row">
+                <div class="col">
+                    <button id="button1" class="btn btn-primary btn-block" type="submit">1</button>
+                </div>
+                <div class="col">
+                    <button class="btn btn-primary btn-block" type="submit">Filtri</button>
+                </div>
+                <div class="col">
+                    <button class="btn btn-primary btn-block" type="submit">Filtri</button>
+                </div>
+            </div>
+            <div class="form-row mt-2">
+                <div class="col">
+                    <button class="btn btn-primary btn-block" type="submit">Filtri</button>
+                </div>
+                <div class="col">
+                    <button class="btn btn-primary btn-block" type="submit">Filtri</button>
+                </div>
+                <div class="col">
+                    <button class="btn btn-primary btn-block" type="submit">Filtri</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+
+            $(document).ready(function () {
+                $('#button1').click(function (event) {
+                    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                    const year = new Date().getFullYear();
+                    const getDaysInMonth = month => new Date(year, new Date(`1-${month}-${year}`).getMonth() + 1, 0).getDate();
+                    months.forEach(m => console.log(`${m} has ${getDaysInMonth(m)} days in ${year}`));          
+                });
+            });
+
+        </script>
+
+
+    </body>
+
+</html>
