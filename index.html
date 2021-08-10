@@ -27,7 +27,7 @@
             BootBox <span class="bi bi-bootstrap"></span> examples by <a href="https://github.com/karenpayneoregon" target="_blank"><img src="https://img.shields.io/badge/Karen%20Payne-Instructor-blue" alt=""></a> - This example requires BootBox <strong>5.4.0</strong>
         </div>
 
-        
+
         <div class="container py-3">
             <div class="row">
                 <div class="col-3">
@@ -47,8 +47,7 @@
                     <div class="card border-0 card-body"><button id="simpleBootBox1" class=" btn btn-danger btn-block  bi bi-info-circle">Alert</button></div>
                 </div>
                 <div class="col-3">
-                    <div class="card border-0 card-body"><button id="simpleBootBox2" class=" btn btn-success btn-block  bi bi-question-circle">Simple
-                            confirm</button></div>
+                    <div class="card border-0 card-body"><button id="simpleBootBox2" class=" btn btn-success btn-block  bi bi-question-circle">Simple confirm</button></div>
                 </div>
             </div>
 
@@ -147,6 +146,35 @@
 
         </div>
 
+        <script>
+            const matched = value =>  ({
+                on: () => matched(value),
+                otherwise: () => value,
+            });
+
+            const match = value =>  ({
+                on: (pred, fn) => 
+                    (pred(value) ? matched(fn(value)) : match(value)),
+                otherwise: fn => 
+                    fn(value),
+            })
+
+            var someValue = 50;
+
+            $(document).ready(function () {
+                var result = match(someValue)
+                    // we are now in match context
+                    .on(value => value < 0, () => 0)
+                    // Since 50 is not < 0, we remain in match(50) context
+                    .on(value => value >= 0 && value <= 1, () => 1)
+                    // Since 50 is not between 0 and 1, we remain in match(50) context
+                    .otherwise(value => value * 10);
+
+                console.log(`The number is ${result}`);
+
+            });
+
+        </script>
     </body>
 
 </html>

@@ -47,6 +47,7 @@
                     const getDaysInMonth = month => new Date(year, new Date(`1-${month}-${year}`).getMonth() + 1, 0).getDate();
                     months.forEach(m => console.log(`${m} has ${getDaysInMonth(m)} days in ${year}`));          
                 });
+                
             });
 
         </script>
