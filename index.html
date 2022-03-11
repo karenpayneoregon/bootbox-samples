@@ -147,18 +147,26 @@
         </div>
 
         <script>
+
             const matched = value =>  ({
                 on: () => matched(value),
                 otherwise: () => value,
             });
 
             const match = value =>  ({
-                on: (pred, fn) => 
-                    (pred(value) ? matched(fn(value)) : match(value)),
-                otherwise: fn => 
-                    fn(value),
+                on: (pred, fn) => (pred(value) ? matched(fn(value)) : match(value)),
+                otherwise: fn =>   fn(value),
             })
 
+            function getConnectionString(value) {
+                switch (value) {
+                    case 1: return "Development connection string goes here";
+                    case 2: return "Test connection string goes here";
+                    case 3: return "Production connection string goes here";
+                    default: return "Developer screwed up!!!";
+                }
+            }     
+            
             var someValue = 50;
 
             $(document).ready(function () {
@@ -171,8 +179,12 @@
                     .otherwise(value => value * 10);
 
                 console.log(`The number is ${result}`);
+                console.log(`Connection string is ${getConnectionString(1)}`);
 
             });
+
+
+
 
         </script>
     </body>
