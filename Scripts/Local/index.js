@@ -185,7 +185,14 @@ $(document).ready(function () {
     })
 
     $('#simpleBootBox10').click(function (event) {
-        bootbox.alert({ message: "Example for positioning", centerVertical: true });
+        bootbox.alert({
+            message: "Vertially centered", 
+            centerVertical: true, 
+            buttonName: {
+                label: 'Your button text'
+
+            } });
+        
     });
 
 

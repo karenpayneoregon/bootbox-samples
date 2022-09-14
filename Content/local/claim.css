@@ -1,0 +1,364 @@
+.bodyText_center_bg_pink_bold {
+ /*   background-image: url("https://www11.emp.state.or.us/graphics/ogov_2015/gray_texture.png");*/
+    color: #474747;
+    background:#F2EBE2;
+    font-style: italic;
+    font-weight: bold;
+    font-size:.9em;
+    padding: 5px;
+}
+
+.btn-green{
+   background-color:#0f700f;
+}
+.btn-primary {
+    background-color: #0f506f;
+    /* border-color: #082538; */
+    border: 1px solid #fff;
+    color: #fff;
+    height:2.8em;
+
+}
+.button-center{
+    margin:0 auto;
+}
+/* */
+.cancelBar{
+    height: 55px !important;
+    background: #0f506f;
+    text-align:center;
+    padding-top:1.2em;
+    box-shadow: 0 2px 3px #323232;
+    margin-top: 6px;
+    font-size:17px;
+}
+/* cancel bar: */
+.cancelBar a{
+    color:#FFF;
+}
+.cancelBar a:hover{
+    color:#34abe3;
+}
+
+/* this bumps the top navbar to the edge of the screen*/
+
+.container-fluid{
+    width:100%;
+    margin-left:0px;
+    /* max-height: 450px; */
+}
+.error{
+    border:2px solid #990F0F;
+    font-weight:bold;
+    padding:.5em;
+    margin-bottom:1em;
+}
+form{
+    /* just to pull inputs,labels off of the outside edge */
+    margin:0px;
+    padding:0px;
+
+}
+.formWrapper{
+    float:left;
+    vertical-align:bottom;
+    width:50%;
+}
+.gm1inner{
+    background-color:#0f506f;
+    width: 100%;
+    text-align:center;
+    color:#ffffff;
+    padding:6px;
+    margin-top:1.5em;
+}
+.H2_black{
+    font-weight:600;
+}
+.navbar{
+   border-top: 1px solid #0f506f;
+   border-left: 1px solid #0f506f;
+   border-right: 1px solid #0f506f;
+}
+/* for header This is all for the upper left logo and 'Employment Department' */
+.navbar .brand {
+    display: block;
+    float: left;
+    font-weight: 200;
+    padding: 10px 20px;
+    color: #ffffff;
+    margin: 0 0 0 -5px;
+    text-shadow: none;
+}
+.navbarEmpDeptLink {
+    color: #ffffff;
+    font-size: 0.9em !important;
+    letter-spacing: 1px;
+
+}
+.navbar-inner{
+    box-shadow: 0 2px 3px #323232;
+}
+.ocs-table{
+    border:2px solid  #0f506f;
+    margin-bottom:2em;
+    width:100%;
+}
+.ocs-table td{
+    padding:.5em;
+}
+div #oedNavbar{
+    display:none;
+}
+/* hides big page title above ocs-styled box: */
+.page-header{
+    display:none;
+}
+
+.nextButton {
+	margin-top:20px !important;
+	margin-bottom:10px !important;
+	height: 55px !important;
+	color: white;
+	font-weight:bold;
+}
+
+.cancelButton {
+	margin-top:20px !important;
+	margin-bottom:10px !important;
+	height: 55px !important;
+	color: white;
+}
+
+/* Next is continue button */
+#next {
+    background: #007a61;
+    border: 1px solid #fff;
+}
+#next:hover {
+    background-color: #427299;
+    border-color: #204d74;
+    color: #fff;
+}
+/* this is here to override .outageDivStyle <style> inside _header_outage_display.cfm: */
+#outageNotice{
+    background-color:#FFA;
+    border:solid #990000 2px;
+    font-size: 14px;
+    padding:2px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin-bottom:10px;
+}
+
+/* class for form-group div. questions */
+.outline{
+    /* border:1px solid #0f506f; */
+    border-radius: 0.5em;
+    padding:4px 6px ;
+}
+.pagehead{
+    font-size:2em;
+    font-weight:500;
+}
+
+/* override big spacing around page title to make more compact for mobile */
+.page-header{
+    margin:3px 0;
+    padding-bottom:0;
+}
+/* for yes/no questions */
+.radioLabel{
+    height:3em;
+    width:30%;
+    border:1px solid #0f506f;
+    border-radius:6px;
+    padding:8px ;
+    margin:6px 10px 0px 0px; /* trbl */
+    background-color:#e7e7e7;
+    box-shadow: 3px 0 5px rgba(6, 6, 0, 0.125) inset;
+
+}
+.radioSet{
+    width:100%;
+    margin:0 auto;
+    vertical-align:middle;
+}
+.theQuestion{
+    font-size:1.2em;
+    /* padding:6px;
+    padding-left:12px; */
+}
+/* warning modal */
+.warning{
+    background-color: #ffa;
+    box-shadow: 0 3px 5px rgba(6, 6, 0, 0.125) inset;
+    padding:.5em;
+    margin-top:2em;
+
+}
+/* help modal */
+.helpLink{
+    /* font-size:1.5em;   */
+    border:1pt solid  #A47E3C;
+    border-radius:6px;
+    padding:8px;
+    margin: 12px 0px 6px 0px;
+    width:30%;
+
+}
+.help{
+    /*  background:  linear-gradient(#ffffff, #ffffff, #ffffff, rgba(15,80,111,.8));    15,80,111 = #0f506f */
+    box-shadow: 0 3px 5px rgba(6, 6, 0, 0.125) inset;
+    padding:.5em;
+    margin-top:2em;
+}
+
+.modal-content.help {
+    border: 7px solid rgb(254, 216, 115); /*darkolivegreen;*/
+}
+
+.modal-footer {
+    border-top: none;
+}
+.bold{
+    font-weight:600;
+}
+
+
+.confirm{
+    display: none;
+}
+.confirmLabel{
+    border:1px solid #0f506f;
+    border-radius:6px;
+    padding:8px ;
+    margin:6px 10px 0px 0px; /* trbl */
+    background-color:#ffa;
+    box-shadow: 3px 0 5px rgba(6, 6, 0, 0.125) inset;
+}
+#confirmBtn{
+    margin-right:.5em;
+}
+
+      .required {
+        font-weight: bold;
+      }
+
+      .accept, .status {
+        padding-left: 90px;
+      }
+
+      .valid {
+        color: green;
+      }
+
+      .invalid {
+        color: red;
+      }
+      span.k-tooltip {
+        margin-left: 6px;
+      }
+      .k-input.k-invalid {
+        border: 1px solid red;
+      }
+
+/*
+.nowarning{
+    background-color: inherit !important;
+    box-shadow: inherit !important;
+}
+.btn-default.active, .btn-default:active{
+    background-color: #ff0;
+    box-shadow: 0 3px 5px rgba(6, 6, 0, 0.125) inset;
+}
+*/
+/* &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& */
+
+
+.k-input, .k-multiselect-wrap, .k-textbox > input, input.k-textbox, input.k-textbox:hover, textarea.k-textbox, textarea.k-textbox:hover {
+    background-color: rgb(250,255,189);
+    color: #003f59;
+}
+/* advisory show more content*/
+.shortcontent{
+	margin-bottom: 0;
+}
+/* advisory show more link style to similar button*/
+.morelink {
+    display: block;
+    width: 125px;
+    height: 35px;
+    background: #4E9CAF;
+    padding-top: 8px;
+    margin-bottom: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/*
+ * advisory show more link style to keep consistent color
+ * show-class and hide-class ensure links in read more
+ * do not appear like links in a button, instead these
+ * style display a link as a button.
+ */
+
+.show-class  a {
+   color: white;
+}
+.show-class  a:link {
+   color: white;
+}
+.show-class  a:visited {
+   color: white;
+}
+
+.hide-class  a {
+   color: white;
+}
+.hide-class  a:link {
+   color: white;
+}
+.hide-class  a:visited {
+   color: white;
+}
+/*
+#qaform {
+	margin-bottom:0px;
+}
+.form-group {
+    margin-right: 4px;
+    margin-left: 4px;
+    margin-bottom:0px;
+}
+*/
+
+.form-group {
+    margin-right: 4px;
+    margin-left: 4px;
+    margin-bottom:0px;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  padding:0;
+  margin: 0;
+}
+
+
+.checkboxLabel{
+    height:4.7em;
+    width:100%;
+    overflow-wrap: break-word;
+    border:1px solid #0f506f;
+    border-radius:6px;
+    padding:4px ;
+    margin:6px 10px 0px 0px;
+    background-color:#e7e7e7;
+    box-shadow: 3px 0 5px rgba(6, 6, 0, 0.125) inset;
+
+}

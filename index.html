@@ -12,12 +12,21 @@
         <link href="Content/bootstrap.css" rel="stylesheet" />
         <script src="Scripts/Local/index.js"></script>
         <link rel="stylesheet" href="Content/local/index.css">
+<<<<<<< HEAD
 
         <style>
             .card1 {
 
                 background-color: red;
                 color: white;
+=======
+        <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+        <style>
+            .bi::before {
+                display: inline-block;
+                padding-right: 10px;
+>>>>>>> f905be12cfc17b4684f9c977d721e8be67e19ba8
             }
         </style>
     </head>
@@ -38,8 +47,9 @@
 
 
         <div class="alert alert-danger" role="alert">
-            Various BootBox examples by Karen Payne - This example requires BootBox <strong>5.4.0</strong>
+            BootBox <span class="bi bi-bootstrap"></span> examples by <a href="https://github.com/karenpayneoregon" target="_blank"><img src="https://img.shields.io/badge/Karen%20Payne-Instructor-blue" alt=""></a> - This example requires BootBox <strong>5.4.0</strong>
         </div>
+
 
         <div class="container py-3">
             <div class="row">
@@ -49,6 +59,7 @@
             </div>
             <div class="row">
                 <div class="col-3">
+<<<<<<< HEAD
                     <div class="card border-0 card-body"><button id="simpleBootBox" class=" btn btn-primary btn-block">Dialog
                             with scrolling</button></div>
                 </div>
@@ -58,6 +69,20 @@
                 <div class="col-3">
                     <div class="card border-0 card-body"><button id="simpleBootBox2" class=" btn btn-success btn-block">Simple
                             confirm</button></div>
+=======
+                    <div class="card border-0 card-body">
+                        <button id="simpleBootBox" class=" btn btn-primary btn-block bi bi-arrow-right-square">
+                            Dialog with scrolling
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div class="card border-0 card-body"><button id="simpleBootBox1" class=" btn btn-danger btn-block  bi bi-info-circle">Alert</button></div>
+                </div>
+                <div class="col-3">
+                    <div class="card border-0 card-body"><button id="simpleBootBox2" class=" btn btn-success btn-block  bi bi-question-circle">Simple confirm</button></div>
+>>>>>>> f905be12cfc17b4684f9c977d721e8be67e19ba8
                 </div>
             </div>
 
@@ -67,7 +92,11 @@
                             prompt</button></div>
                 </div>
                 <div class="col-3">
+<<<<<<< HEAD
                     <div class="card border-0 card-body"><button id="simpleBootBox4" class=" btn btn-danger btn-block">Prompt
+=======
+                    <div class="card border-0 card-body"><button id="simpleBootBox4" class=" btn btn-danger btn-block  bi bi-calculator-fill">Prompt
+>>>>>>> f905be12cfc17b4684f9c977d721e8be67e19ba8
                             for number</button></div>
                 </div>
                 <div class="col-3">
@@ -78,13 +107,31 @@
 
             <div class="row">
                 <div class="col-3">
+<<<<<<< HEAD
                     <div class="card border-0 card-body"><button id="simpleBootBox6" class=" btn btn-primary btn-block">Select
                             prompt</button></div>
+=======
+                    <div class="card border-0 card-body"><button id="simpleBootBox6" class=" btn btn-primary btn-block">Select prompt</button>
+                    </div>
+>>>>>>> f905be12cfc17b4684f9c977d721e8be67e19ba8
                 </div>
+
+
                 <div class="col-3">
+<<<<<<< HEAD
                     <div class="card border-0 card-body"><button id="simpleBootBox7" class=" btn btn-danger btn-block">Prompt
                             for date</button></div>
+=======
+                    <div class="card border-0 card-body">
+                        <button id="simpleBootBox7" class=" btn btn-danger btn-block  ">
+                            <i class="bi bi-calendar-date"></i>Prompt for date
+                        </button>
+                    </div>
+>>>>>>> f905be12cfc17b4684f9c977d721e8be67e19ba8
                 </div>
+
+
+
                 <div class="col-3">
                     <div class="card border-0 card-body"><button id="simpleBootBox8" class=" btn btn-success btn-block">Confirm
                             small/large</button></div>
@@ -148,6 +195,47 @@
 
         </div>
 
+        <script>
+
+            const matched = value =>  ({
+                on: () => matched(value),
+                otherwise: () => value,
+            });
+
+            const match = value =>  ({
+                on: (pred, fn) => (pred(value) ? matched(fn(value)) : match(value)),
+                otherwise: fn =>   fn(value),
+            })
+
+            function getConnectionString(value) {
+                switch (value) {
+                    case 1: return "Development connection string goes here";
+                    case 2: return "Test connection string goes here";
+                    case 3: return "Production connection string goes here";
+                    default: return "Developer screwed up!!!";
+                }
+            }     
+            
+            var someValue = 50;
+
+            $(document).ready(function () {
+                var result = match(someValue)
+                    // we are now in match context
+                    .on(value => value < 0, () => 0)
+                    // Since 50 is not < 0, we remain in match(50) context
+                    .on(value => value >= 0 && value <= 1, () => 1)
+                    // Since 50 is not between 0 and 1, we remain in match(50) context
+                    .otherwise(value => value * 10);
+
+                console.log(`The number is ${result}`);
+                console.log(`Connection string is ${getConnectionString(1)}`);
+
+            });
+
+
+
+
+        </script>
     </body>
 
 </html>

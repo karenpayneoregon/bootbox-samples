@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>media breaks/Bootstrap icons</title>
+
+        <script src="Scripts/jquery-3.0.0.js"></script>
+        <script src="Scripts/bootstrap.js"></script>
+        <script src="Scripts/BootBox/bootbox.js"></script>
+        
+        <link href="Content/bootstrap.css" rel="stylesheet" />
+        <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+        <style>
+            .bi::before {
+                display: inline-block;
+                padding-left: 10px;
+            }
+        </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            Experiments with hiding elements
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="d-none d-xl-block">
+            <div class="row p-2 mt-2 text-left">
+                <div class="col-6">
+    
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6">
+    
+                                <div class="form-group">
+                                    <label for="parameterValue2">Input 1</label>
+                                    <div class="input-group">
+                                        <input class="form-control" type="text" id="parameterValue1" placeholder="Enter a value..." />
+                                        <span class="ml-2">
+                                            <button class="btn btn-success">
+                                                Update <i class="bi bi-upload"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+    
+                                <div class="form-group">
+                                    <label for="parameterValue2">Input 2</label>
+                                    <div class="input-group">
+                                        <input class="form-control" type="text" id="parameterValue2" placeholder="Enter a value..." />
+                                        <span class="ml-2">
+                                            <button class="btn btn-success">
+                                                Update <i class="bi bi-cloud-arrow-up"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+    
+                                <button class="btn btn-primary" data-bind="click: $root.completeStep">
+                                    Complete Step<i class="bi bi-check"></i>
+                                </button>
+    
+                            </div>
+                        </div>
+                    </div>
+    
+    
+                </div>
+    
+    
+    
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid d-lg-none">
+        <div class="row">
+            <div class="col-12">
+                <span class="display-3 vertical-center">Hiding elements</span>
+                <img src="http://placehold.it/80/006400/FFFF00?text=BS4" class="float-right rounded-circle mx-3" />
+            </div>
+        </div>
+    </div>
+    
+    <div class="container-fluid  d-lg-none">
+        <div class="row m-1 text-left">
+            <div class="col-6  d-inline p-2">
+                Left
+            </div>
+            <div class="col-6 text-right d-inline p-2">
+                Right
+            </div>
+    
+        </div>
+    </div>
+    
+    <div class="container-fluid">
+        <span class="d-block p-2 m-2 bg-primary text-white  text-center d-lg-none">d-block 0</span>
+        <span class="d-block p-2 m-2 bg-primary text-white  text-center d-none d-sm-none">d-block 0</span>
+    </div>
+    
+    <div class="container-fluid">
+        <span class="d-block p-2 m-2 bg-dark text-white text-center d-lg-none">d-block 1</span>
+        <span class="d-block p-2 m-2 bg-dark text-white text-center d-none d-sm-none">d-block 1</span>
+    </div>
+    
+    <div class="container-fluid">
+        <span class="d-block p-2 m-2 bg-danger text-white text-center d-none d-sm-none">Last</span>
+    </div>
+    
+    <script>
+        $(document).ready(function (e) {
+
+            var name = "Karen,Payne";
+            var results = name.split(',');
+            console.log(results[0] + ' ' + results[1]);
+        });
+    </script>
+    
+</body>
+</html>

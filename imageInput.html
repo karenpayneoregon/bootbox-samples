@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset='utf-8' />
+        <title>images embedded</title>
+
+        <script src="Scripts/jquery-3.0.0.js"></script>
+        <script src="Scripts/bootstrap.js"></script>
+        <script src="Scripts/BootBox/bootbox.js"></script>
+
+        <link href="Content/bootstrap.css" rel="stylesheet" />
+        <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="Content/local/imageInput.css">
+
+    </head>
+
+    <body>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            Embed icons <i class="bi bi-bootstrap"></i>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div class="main">
+            <div class="form-group">
+                <span class="bi bi-chat-text form-control-icon"></span>
+                <input type="text" class="form-control" placeholder="Start chatting">
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div>
+                <div class="row p-2 mt-2 text-left">
+                    <div class="col-6">
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-6">
+
+                                    <div class="form-group">
+                                        <label for="parameterValue1">Search something</label>
+                                        <span class="bi bi-search form-control-icon"></span>
+                                        <input type="text" class="form-control" placeholder="Search">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="parameterValue2">Filter</label>
+                                        <span class="bi bi-filter form-control-icon"></span>
+                                        <input id="parameterValue1" type="text" class="form-control" placeholder="Filter">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="parameterValue2">Name</label>
+                                        <span class="bi bi-person form-control-icon"></span>
+                                        <input id="parameterValue2" type="text" class="form-control" placeholder="User name">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="parameterValue3">PIN</label>
+                                        <span class="bi bi-eye form-control-icon"></span>
+                                        <input id="parameterValue3" type="password" class="form-control" placeholder="Enter pin">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-lg-6">
+                                    <label>Search right</label>
+                                    <div class="input-group">
+                                        <input class="form-control border-right-0" placeholder="Search" id="searchRight">
+                                        <span class="input-group-append bg-white">
+                                            <button class="btn border border-left-0" type="button" id="searchRightButton"><i class="bi-search"></i></button>
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <div class="input-group">
+
+                    <span class="ml-4">
+                        <button class="btn btn-success  btn-block" id="updateButton">
+                            Update <i id="updateImage" class="bi bi-check"></i>
+                        </button>
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <div class="input-group">
+
+                    <span class="ml-4">
+                        <button id="brightnessButton" class="btn btn-success  btn-block">
+                            Toggle me <i id="brightness" class="bi bi-brightness-low"></i>
+                        </button>
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <script>
+
+            $(document).ready(function () {
+
+                /*
+                 * Same size buttons
+                */
+                var max = Math.max($("#updateButton").width(), $("#brightnessButton").width());
+                $("#updateButton").width(max);
+                $("#brightnessButton").width(max);
+
+                /*
+                * Toggle icon
+                */
+                $('#brightnessButton').click(function (event) {
+                    $('#brightness').toggleClass('bi-brightness-high').toggleClass('bi-brightness-low')
+                });
+
+
+                /*
+                * Toggle icon
+                */
+                $('#updateButton').click(function (event) {
+                    $('#updateImage').toggleClass('bi-check').toggleClass('bi-check-circle')
+                });
+
+                /*
+                * Show what was selected
+                */
+                $('#searchRightButton').click(function (event) {
+                    var value = $('#searchRight').val();
+                    if (value === '') {
+                        value = "(nothing to search for!!!)";
+                    }
+                    bootbox.alert({ message: value, centerVertical: true });
+                });
+            });
+
+        </script>
+
+    </body>
+
+</html>
